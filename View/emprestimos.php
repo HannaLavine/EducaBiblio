@@ -301,7 +301,7 @@ $conn = $conexao->getConnection();
 						} else {
 							if ($result->rowCount() > 0) {
 								$emprestimos = $result->fetchAll(PDO::FETCH_ASSOC);
-								$emprestimosPorPagina = 5;
+								$emprestimosPorPagina = count($emprestimos);
 								$paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 								$indiceInicial = ($paginaAtual - 1) * $emprestimosPorPagina;
 								$emprestimosExibidos = array_slice($emprestimos, $indiceInicial, $emprestimosPorPagina);
